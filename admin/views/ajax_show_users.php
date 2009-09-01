@@ -2,6 +2,9 @@
 <tr>
 	<td>ID</td>
 	<td>Login</td>
+	<td>Имя</td>
+	<td>Фамилия</td>
+	<td>E-mail</td>
 	<td>State</td>
 	<td>Role</td>
 	<td>Block</td>
@@ -15,6 +18,9 @@
 	<tr>
 		<td><?= $row['user_id']?></td>
 		<td><?= $row['user_login']?></td>
+		<td><?= $row['user_name']?></td>
+		<td><?= $row['user_fam']?></td>
+		<td><?= $row['user_email']?></td>
 		<td id="td_state_<?= $row['user_id']?>"><?= strtoupper ( $row['user_state'] )?></td>
 		<td><?= $row['user_role']?></td>
 		<td align="center">&nbsp;

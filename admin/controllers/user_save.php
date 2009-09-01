@@ -4,6 +4,15 @@ $error_message  = array();
 $select_user 	= ( isset ( $select_user ) ? intval( $select_user ) : 0 );
 $edit_flag 	= ( $select_user ? 1 : 0 );
 
+if( !$user_name )
+{
+	$error_message[] = 'Надо указать имя';
+}
+
+if( !$user_fam )
+{
+	$error_message[] = 'Надо указать фамилию';
+}
 
 if( !$user_login )
 {
@@ -13,7 +22,7 @@ else if ( preg_match( "/[^a-z0-9_\-]/i", $user_login ) )
 {
 	$error_message[] = 'Login can only contain english letters, digits and "-" or "_"';
 }
-else if ( strlen( $user_login ) > 11 )
+else if ( strlen( $user_login ) > 32 )
 {
 	$error_message[] = 'Login cannot be longer than 32 characters';
 }
@@ -37,6 +46,9 @@ if ( !count ( $error_message ) )
 	user
 		SET
 	user_login 			= '$user_login',
+	user_name 			= '$user_name',
+	user_fam 			= '$user_fam',
+	user_email 			= '$user_email',
 	user_create_dtm		= '" . date ( "Y-m-d H:i:s" ) . "',
 	user_state			= '$user_state',
 	user_state_dtm		= '" . date ( "Y-m-d H:i:s" ) . "',

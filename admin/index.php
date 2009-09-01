@@ -30,13 +30,30 @@ $action['user_edit']['view']  	= 'user_edit.php';
 $action['user_save']['cont'] 	= 'user_save.php';
 $action['user_save']['view']  	= 'user_save.php';
 
+//matches
+$action['list_matches']['cont'] = 'list_matches.php';
+$action['list_matches']['view'] = 'list_matches.php';
+
+$action['match_edit']['cont'] 	= 'match_edit.php';
+$action['match_edit']['view']  	= 'match_edit.php';
+
+$action['match_save']['cont'] 	= 'match_save.php';
+$action['match_save']['view']  	= 'match_save.php';
+
+
+
 $controller = $action[$todo]['cont'];
 $view       = $action[$todo]['view'];
 
 if ( $controller && file_exists( $dir_controllers . $controller ) )
     require_once( $dir_controllers . $controller );
 
-$links_line = ' <a href="index.php">Главная страница</a> | <a href="index.php?todo=exit">Выйти</a> | <br>';
+$links_line = ' <a href="index.php">Главная страница</a> | ';
+
+if ( $user_authorized )
+	$links_line .= '<a href="index.php?todo=list_matches">Матчи</a> | ';
+
+$links_line .= '<a href="index.php?todo=exit">Выйти</a> | <br>';
 
 if ( isset ( $no_links ) && $no_links )
 	$links_line = '';

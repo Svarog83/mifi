@@ -4,6 +4,27 @@
 <table width="90%" border="0" cellpadding="2" cellspacing="2">
 
 <tr>
+<td>Имя</td>
+<td>
+<input type="text" name="user_name" value="<?= isset ( $UserArr['user_name'] ) ? $UserArr['user_name'] : '' ?>" size="40" maxlength="32">
+</td>
+</tr>
+
+<tr>
+<td>Фамилия</td>
+<td>
+<input type="text" name="user_fam" value="<?= isset ( $UserArr['user_fam'] ) ? $UserArr['user_fam'] : '' ?>" size="40" maxlength="32">
+</td>
+</tr>
+
+<tr>
+<td>E-mail</td>
+<td>
+<input type="text" name="user_email" value="<?= isset ( $UserArr['user_email'] ) ? $UserArr['user_email'] : '' ?>" size="40" maxlength="32">
+</td>
+</tr>
+
+<tr>
 <td>Login</td>
 <td>
 <input type="text" name="user_login" value="<?= isset ( $UserArr['user_login'] ) ? $UserArr['user_login'] : '' ?>" size="40" maxlength="32">
@@ -29,7 +50,7 @@ $arr = array();
 $arr['field_name'] 		  	= 'user_role';
 $arr['onchange']   		  	= 'self.focus()';
 $arr['show_select_title'] 	= 0;
-$arr['selected_value'] 		= isset ( $UserArr['user_role'] ) ? $UserArr['user_role']: '';	
+$arr['selected_value'] 		= isset ( $UserArr['user_role'] ) ? $UserArr['user_role']: 'user';	
 $arr['select_values'] 		= $RolesArr;
 
 echo PrepareSelect( $arr ); 

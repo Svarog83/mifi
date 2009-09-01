@@ -5,7 +5,15 @@ $HTTP_REFERER   = $_SERVER['HTTP_REFERER'];
 if( function_exists('date_default_timezone_set') )
     date_default_timezone_set( 'Europe/Moscow' );
 
-$local_server		= TRUE;
+if( $_SERVER['HTTP_HOST'] == 'www.mifi.ru' )
+{   
+	$local_server		= true;
+}
+else
+{
+	$local_server = false;
+}
+
 $setup_secret_word = 'it_is_impossible_to_guess';
 $setup_timeout = 30 * 60; //30 miunutes
 
@@ -22,8 +30,7 @@ error_reporting(4);
 error_reporting ( E_ALL & ~E_NOTICE );
 
 $admin_email		=  array(
-'svaroggg@gmail.com',
-'neverov.a@gmail.com'
+'svaroggg@gmail.com'
 );
 
 //// Used languages in System
@@ -39,15 +46,15 @@ $LangArr = array(
 
 if( $local_server )
 {
-	$www_main			= 'tracker.ru';
-	$www_main_full		= 'http://www.tracker.ru';
-	$real_www			= 'http://tracker.ru';
+	$www_main			= 'mifi.ru';
+	$www_main_full		= 'http://www.mifi.ru';
+	$real_www			= 'http://mifi.ru';
 }
 else
 {
-	$www_main			= 'trk.asteis.net';
-	$www_main_full		= 'http://trk.asteis.net';
-	$real_www			= 'http://trk.asteis.net';
+	$www_main			= 'mifi.vetko.net';
+	$www_main_full		= 'http://mifi.vetko.net';
+	$real_www			= 'http://mifi.vetko.net';
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -56,17 +63,17 @@ else
 if( $local_server )
 {
 	$db_host_name_main	= 'localhost';
-	$db_name_main		= 'tracker';
+	$db_name_main		= 'mifi';
 	$db_user_name_main	= 'root';
 	$db_password_main	= '';
 
 }
 else
 {
-	$db_host_name_main	= 'localhost';
-	$db_name_main		= 'trk_ast';
-	$db_user_name_main	= 'trk_ast';
-	$db_password_main	= 'qazxcft';
+	$db_host_name_main	= 'mysql1032.servage.net';
+	$db_name_main		= 'mifi';
+	$db_user_name_main	= 'mifi';
+	$db_password_main	= 'dtnjrhtc1';
 }
 
 ////////////////////////////////////////////////////////////////////////

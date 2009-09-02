@@ -12,7 +12,7 @@
 </tr>
 
 <? if ( !count ( $UsersArr ) ):?>
-<tr><td colspan="6">No users found</td></tr>
+<tr><td colspan="9">No users found</td></tr>
 <? else : ?>
 	<? foreach ( $UsersArr AS $row ): ?>
 	<tr>

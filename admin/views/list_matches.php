@@ -49,7 +49,7 @@ echo PrepareSelect( $arr );
 &nbsp;&nbsp;
 <? DrawButton( 'Clear', 'document.form.reset();', '/icon/exit1.gif', '', '' ); ?>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<? DrawButton( 'Add match', "ShowWindow('./?todo=user_edit&no_links=1', 'New match', 600, 500);", '/icon/add.gif', '', '' ); ?>
+<? DrawButton( 'Add match', "ShowWindow('./?todo=match_edit&no_links=1', 'New match', 600, 500);", '/icon/add.gif', '', '' ); ?>
 </fieldset>
 
 <br>

@@ -40,6 +40,9 @@ $action['match_edit']['view']  	= 'match_edit.php';
 $action['match_save']['cont'] 	= 'match_save.php';
 $action['match_save']['view']  	= 'match_save.php';
 
+$action['match_players']['cont'] 	= 'match_players.php';
+$action['match_players']['view']  	= 'match_players.php';
+
 
 
 $controller = $action[$todo]['cont'];
@@ -48,7 +51,7 @@ $view       = $action[$todo]['view'];
 if ( $controller && file_exists( $dir_controllers . $controller ) )
     require_once( $dir_controllers . $controller );
 
-$links_line = ' <a href="index.php">Главная страница</a> | ';
+$links_line = ' <a href="index.php">Игроки</a> | ';
 
 if ( $user_authorized )
 	$links_line .= '<a href="index.php?todo=list_matches">Матчи</a> | ';

@@ -274,3 +274,32 @@ function getTeamName( $team_id )
 	   
 	return $row['t_name'];
 }
+
+function redirect ( $URL = '/' )
+{
+	 header( "Location: $URL");
+}
+
+function checkRights ( $options )   
+{
+    global $UA;
+	$return_val = false;
+    
+    if ( isset ( $UA['user_role'] ) && $UA['user_role']  == 'adm' )
+    {
+    	$return_val = true;
+    }
+	
+    else if ( isset ( $UA['user_role'] ) )
+    {
+	    if ( is_array( $options ) )
+	        foreach ( $options as $level ) 
+	        {
+	            if ( $return_val = ( trim ( $level ) == $UA['user_role'] ? true : false ) )
+	                break;
+	        }
+    }
+
+    return  $return_val;
+
+}

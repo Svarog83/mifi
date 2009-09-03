@@ -22,7 +22,7 @@ else if ( is_array ( $_SESSION ) && count ( $_SESSION ) )
 	else if ( !isset ( $_SESSION['hash'] ) )
 		$error_message[] = 'No hash info';
 	else if ( isset ( $_SESSION['timeout'] ) && ( $_SESSION['timeout'] + $setup_timeout ) < time() )
-		$error_message[] = 'Time\'s up';
+		$error_message[] = 'Время вышло';
 	else 
 	{
 		/*echo '<br>user_id = ' . $_SESSION['user_id'] . '<br><br>';
@@ -33,18 +33,19 @@ else if ( is_array ( $_SESSION ) && count ( $_SESSION ) )
 		$md5 = md5 ( $_SESSION['user_id'] . $_SESSION['timeout'] . $_SERVER['REMOTE_ADDR'] . $setup_secret_word );
 		
 		if ( $md5 != $_SESSION['hash'] )
-			$error_message[] = 'Some data have changed.';
+			$error_message[] = 'Данные изменились.';
 	}
 	
 	if ( !count ( $error_message ) )
 	{
 		$user_id = (int)$_SESSION['user_id'];
-		$query = "SELECT * FROM user WHERE user_id = '$user_id' && user_role = 'adm'";
+		$query = "SELECT * FROM user WHERE user_id = '$user_id' && user_state = 'a'";
 		$result = mysql_query( $query ) or eu( __FILE__, __LINE__, $query );
 		
 		if ( mysql_num_rows( $result ) == 1 )
 		{
 			$UA = mysql_fetch_array ( $result,  MYSQL_ASSOC );
+			
 			SetSessionData( $UA['user_id'], $setup_secret_word );
 		}
 		else 
@@ -57,9 +58,10 @@ else
 
 if ( count ( $error_message ) && $todo )
 {
-		echo implode ( ', ', $error_message );
-		echo '<br><a href="/admin/">You need to login again</a>';
+//		echo implode ( ', ', $error_message );
+		//echo '<br><a href="/admin/">Нужно войти опять</a>';
 		unset ( $_SESSION['user_id'] );
 		session_destroy();
-		exit();
+//		header( "Location: /");
+//		exit();
 }

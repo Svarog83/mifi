@@ -4,7 +4,7 @@ $HTTP_REFERER   = $_SERVER['HTTP_REFERER'];
 
 if( function_exists('date_default_timezone_set') )
     date_default_timezone_set( 'Europe/Moscow' );
-
+    
 if( $_SERVER['HTTP_HOST'] == 'www.mifi.ru' )
 {   
 	$local_server		= true;
@@ -15,7 +15,7 @@ else
 }
 
 $setup_secret_word = 'it_is_impossible_to_guess';
-$setup_timeout = 30 * 60; //30 miunutes
+$setup_timeout = 86400 * 7; //7 days
 
 define ( "FATAL",	E_USER_ERROR);
 define ( "ERROR",	E_USER_WARNING);

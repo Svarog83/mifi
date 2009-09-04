@@ -46,6 +46,7 @@ if ( !count ( $error_message ) )
 	user
 		SET
 	user_login 			= '$user_login',
+	user_pwd 			= '" . md5 ( 'v' ) . "',
 	user_name 			= '$user_name',
 	user_fam 			= '$user_fam',
 	user_email 			= '$user_email',

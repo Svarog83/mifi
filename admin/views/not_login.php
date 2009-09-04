@@ -15,8 +15,8 @@ function submit_form()
 
 <form action="index.php" name="form" method="POST">
 <input type="hidden" name="todo" value="login">
-Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="login" value="Svarog" size="30"><br>
-Password: <input type="password" name="pwd" value="dtnjrhtc" size="30">
+Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="login" value="" size="30"><br>
+Password: <input type="password" name="pwd" value="" size="30">
 
 <input type="hidden" name="add_pwd" value="">
 <input type="button" value="login" onclick="submit_form();">

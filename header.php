@@ -13,9 +13,8 @@ Released   : 20090805
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>МИФИ</title>
-<meta name="keywords" content="МИФИ футбольная команда ЛФЛ чемпионы футбольные боги Сергей Ветко" />
-<meta name="Premium Series" content="" />
+<title>МИФИ. Футбольная команда</title>
+<meta name="keywords" content="МИФИ футбольная команда ЛФЛ чемпионы футбольные боги Сергей Ветко Ринатос" />
 <link href="/css/default.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>

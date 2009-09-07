@@ -1,6 +1,17 @@
 <!-- end page -->
 <div id="footer">
-	<p class="copyright">&copy;&nbsp;&nbsp;<?= ( date ( "Y" ) != '2009' ? '2009-' : '' ) . date ( "Y" ) ?> Команда МИФИ &nbsp;&bull;&nbsp; Сделал <a href="mailto:sergey@vetko.net">Сергей Ветко</a>.</p>
+	<p class="copyright">&copy;&nbsp;&nbsp;<?= ( date ( "Y" ) != '2009' ? '2009-' : '' ) . date ( "Y" ) ?> Команда МИФИ &nbsp;&bull;&nbsp; Сделал <a href="mailto:S.Vetko@fcmifi.ru">Сергей Ветко</a>.</p>
 </div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-10557416-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
 </body>
 </html>

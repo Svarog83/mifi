@@ -9,9 +9,9 @@
 	</div>
 	<div id="logo">
 		<h1><span>МИФИ </span></h1>
-		<p>Футбольные боги</p>
+		<p><?= $title?></p>
 	</div>
 	<div id="time">
-	<p>Сегодня: <?= date ( "Y-m-d" ) ?></p>
+	Сегодня: <?= date ( "Y-m-d" ) ?>
 	</div>
 </div>

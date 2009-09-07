@@ -1,7 +1,7 @@
 	<li>
 		<h2>Ближайшие матчи</h2>
 		<ul>
-			<? foreach ( $MatchesArr AS $row ): ?>
+			<? foreach ( $cMatchesArr AS $row ): ?>
 			<li>
 				<? if ( $user_authorized ): ?>
 				<a href="/check_game/<?= $row['g_id'] ?>/" title="Отметиться на игру">
@@ -9,11 +9,11 @@
 				
 				<?= getTeamName( $row['g_team'] ) . ' ' . date ( "Y-m-d H:i", strtotime ( $row['g_date_time'] ) ) ?>
 			
-				<? if ( isset ( $MarksArr[$row['g_id']] ) && $MarksArr[$row['g_id']]['gul_go'] ) : ?>
+				<? if ( isset ( $cMarksArr[$row['g_id']] ) && $cMarksArr[$row['g_id']]['gul_go'] ) : ?>
 				<img src="/icon/button.gif" title="Я буду!">
-				<? elseif ( !isset ( $MarksArr[$row['g_id']] ) ) : ?>
+				<? elseif ( !isset ( $cMarksArr[$row['g_id']] ) ) : ?>
 				<img src="/icon/help.gif" title="Еще не отметился">
-				<? elseif ( isset ( $MarksArr[$row['g_id']] ) && !$MarksArr[$row['g_id']]['gul_go'] ) : ?>
+				<? elseif ( isset ( $cMarksArr[$row['g_id']] ) && !$cMarksArr[$row['g_id']]['gul_go'] ) : ?>
 				<img src="/icon/exit.gif" title="Не иду">
 						<? endif; ?>
 			

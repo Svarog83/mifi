@@ -17,7 +17,7 @@
 				<? if ( count ( $error_message ) ): ?>
 				<?= implode ( '<br>', $error_message ); ?>
 				<? else: ?>
-				Игра с <b><?= getTeamName( $GA['g_team']) ?></b> в <b><?= $GA['g_date_time'] ?></b>
+				Игра с <b><?= getTeamName( $GA['g_team']) ?></b> в <b><?= $GA['g_date_time'] ?></b>(<i style="color:red;"><?= $GA['g_remarks'] ?></i>)
 				<br>
 
 				<form id="searchform" method="post" action="/save_check_game/" name="form">

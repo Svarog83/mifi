@@ -5,6 +5,9 @@
 			<li <?= $todo == 'calendar' ? 'class="current_page_item"' : ''?>><a href="/calendar/">Календарь</a></li>
 			<li <?= $todo == 'photo' ? 'class="current_page_item"' : ''?>><a href="/photo/">Фотографии</a></li>
 			<li <?= $todo == 'forum' ? 'class="current_page_item"' : ''?>><a href="/forum/">Форум</a></li>
+			<? if ( $user_authorized && $UA['user_role'] == 'adm' ): ?>
+			<li><a href="/admin/?todo=list_matches">Админка</a></li>
+			<? endif ; ?>
 		</ul>
 	</div>
 	<div id="logo">

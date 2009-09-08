@@ -54,7 +54,7 @@ $view       = $action[$todo]['view'];
 if ( $controller && file_exists( $dir_controllers . $controller ) )
     require_once( $dir_controllers . $controller );
 
-$links_line = ' <a href="index.php">Игроки</a> | ';
+$links_line = '<a href="/">Главная</a> | <a href="index.php">Игроки</a> | ';
 
 if ( $user_authorized )
 	$links_line .= '<a href="index.php?todo=list_matches">Матчи</a> | ';

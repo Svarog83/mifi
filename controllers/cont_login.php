@@ -11,5 +11,8 @@ if ( mysql_num_rows( $result ) == 1 )
     
     session_start();
     SetSessionData( $UA['user_id'], $setup_secret_word );
+    
+    $query = "UPDATE user SET user_login_dtm = '" . date ( "Y-m-d H:i:s" ) . "' WHERE user_id = '" . $UA['user_id'] . "'";
+    $result = mysql_query( $query ) or eu( __FILE__, __LINE__, $query );
     redirect();
 }

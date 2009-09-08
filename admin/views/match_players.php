@@ -1,5 +1,5 @@
 <fieldset>
-<form name="form" method="POST" action="./?todo=match_save&no_links=true">
+<form name="form" method="POST" action="./?todo=email_send&no_links=true">
 <input type="hidden" name="select_game" value="<?= $select_game?>">
 
 <div class="head>">
@@ -40,6 +40,7 @@
 <td>Подтвердил?</td>
 <td>Комментарии</td>
 <td>&nbsp;</td>
+<td>&nbsp;</td>
 </tr>
 <? foreach ( $PlayersArr['bad'] AS $row ): ?>
 <tr style="font-weight:bold;">
@@ -50,17 +51,27 @@
 <td><?= $row['gul_id'] ? 'Да' : 'Нет'?></td>
 <td>&nbsp;<?= $row['gul_remarks']?></td>
 <td align="center"><img src="/icon/button.gif" title="Человек будет" style="cursor:pointer;" onclick="location.href='./?todo=match_players&select_game=<?= $select_game?>&select_user=<?= $row['user_id']?>&status=1&no_links=1';"></td>
+<td><input type="checkbox" name="check_user[]" value="<?= $row['user_id'] ?>" <?= !isset ( $EmailsArr[$row['user_id']] ) && $row['user_email'] ? ' checked' : '' ?> title="Отправить письмо"></td>
 </tr>
 <? endforeach;?>
 </table>
-
+(прим: если чекбокс отмечен, значит письмо еще не отправлялось пользователю. Если снят, значит уже отправляли. Письмо будет отправлено только тем, у кого отмечен чекбокс!)
 <br>
 <br>
 <center>
-<? DrawButton( 'Save', 'document.form.submit();', '/icon/button.gif', '', '' ); ?>
+<? DrawButton( 'Отправить письма', 'form_submit();', '/icon/mail2.gif', '', '' ); ?>
 &nbsp;&nbsp;
-<? DrawButton( 'Close window', "parent.Windows.closeAll();", '/icon/exit1.gif', '', '' ); ?>
+<? DrawButton( 'Закрыть окно', "parent.Windows.closeAll();", '/icon/exit1.gif', '', '' ); ?>
 </center>
 
 </form>
 </fieldset>
+
+<script language="JavaScript">
+<!--
+function form_submit()
+{
+	document.form.submit();	
+}
+//-->
+</script>

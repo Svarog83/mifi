@@ -43,6 +43,9 @@ $action['match_save']['view']  	= 'match_save.php';
 $action['match_players']['cont'] 	= 'match_players.php';
 $action['match_players']['view']  	= 'match_players.php';
 
+$action['email_send']['cont'] 		= 'email_send.php';
+$action['email_send']['view']  		= 'match_players.php';
+
 
 
 $controller = $action[$todo]['cont'];

@@ -32,18 +32,25 @@ if ( $select_game )
 
 $PlayersArr = array();
 $PlayersArr['good'] = $PlayersArr['bad'] = array();
+$query = "SELECT user_id, user_name, user_fam, user_email, gul_id, gul_go, gul_remarks FROM user LEFT JOIN game_user_link ON gul_user = user_id && gul_game = '$select_game' ORDER BY user_name";
+$result = mysql_query( $query ) or eu( __FILE__, __LINE__, $query );
+while ( $row = mysql_fetch_array ( $result, MYSQL_ASSOC ) )
 {
-	$query = "SELECT user_id, user_name, user_fam, user_email, gul_id, gul_go, gul_remarks FROM user LEFT JOIN game_user_link ON gul_user = user_id && gul_game = '$select_game' ORDER BY user_name";
-	$result = mysql_query( $query ) or eu( __FILE__, __LINE__, $query );
-	while ( $row = mysql_fetch_array ( $result, MYSQL_ASSOC ) )
+	if ( $row['gul_go'] )
 	{
-		if ( $row['gul_go'] )
-		{
-			$PlayersArr['good'][] = $row;
-		}
-		else 
-		{
-			$PlayersArr['bad'][] = $row;
-		}
+		$PlayersArr['good'][] = $row;
 	}
+	else 
+	{
+		$PlayersArr['bad'][] = $row;
+	}
+}
+
+$EmailsArr = array();
+
+$query = "SELECT * FROM email WHERE em_game = '$select_game'";
+$result = mysql_query( $query ) or eu( __FILE__, __LINE__, $query );
+while ( $row = mysql_fetch_array ( $result, MYSQL_ASSOC ) )
+{
+	$EmailsArr[$row['em_user']] = true;
 }

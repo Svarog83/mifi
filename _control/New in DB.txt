@@ -1,63 +1,70 @@
 /* 
-Описание и инструкция: 
-Пишем СВЕРХУ все изменения в БД - что, кто, описание функциональности поля   
+РћРїРёСЃР°РЅРёРµ Рё РёРЅСЃС‚СЂСѓРєС†РёСЏ: 
+РџРёС€РµРј РЎР’Р•Р РҐРЈ РІСЃРµ РёР·РјРµРЅРµРЅРёСЏ РІ Р‘Р” - С‡С‚Рѕ, РєС‚Рѕ, РѕРїРёСЃР°РЅРёРµ С„СѓРЅРєС†РёРѕРЅР°Р»СЊРЅРѕСЃС‚Рё РїРѕР»СЏ   
 */
 
 ########################################################################################
 ########################################################################################
-##  Изменил в DB:	   SV 2008-08-25
-##  Изменил на сервере:	   SV 2008-08-25
+##  РР·РјРµРЅРёР» РІ DB:	   SV 2008-08-25
+##  РР·РјРµРЅРёР» РЅР° СЃРµСЂРІРµСЂРµ:	   SV 2008-08-25
+
+CREATE TABLE `mifi`.`email` (
+`em_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'Auto increment ID',
+`em_game` INT UNSIGNED NOT NULL COMMENT 'Game ID',
+`em_user` INT UNSIGNED NOT NULL COMMENT 'User id',
+INDEX ( `em_game` , `em_user` ) 
+) ENGINE = MYISAM COMMENT = 'РҐСЂР°РЅРёС‚ РёРЅС„Сѓ, РєРѕРјСѓ Р±С‹Р»Рё РѕС‚РїСЂР°РІР»РµРЅС‹ СЃРѕРѕР±С‰РµРЅРёСЏ' 
 
 CREATE TABLE `user` (
 `user_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'User''s autoincrement ID',
-`user_login` VARCHAR( 32 ) NOT NULL COMMENT 'Логин',
-`user_pwd` VARCHAR( 32 ) NOT NULL COMMENT 'Пароль Хранится в зашифрованном виде',
-`user_state` CHAR( 1 ) NOT NULL COMMENT 'Статус (A – активен, B- заблокирован)',
-`user_state_dtm` DATE NOT NULL COMMENT 'Дата-время изменения статуса',
-`user_role` VARCHAR( 10 ) NOT NULL COMMENT 'Роль юзера (adm-админ, svisor - супервайзер, user -пользователь), [role->role_name]',
-`user_supervisor` INT UNSIGNED NOT NULL COMMENT 'Проставляется id супервайзера',
-`user_login_dtm` DATETIME NOT NULL COMMENT 'Время последнего входа. ',
+`user_login` VARCHAR( 32 ) NOT NULL COMMENT 'Р›РѕРіРёРЅ',
+`user_pwd` VARCHAR( 32 ) NOT NULL COMMENT 'РџР°СЂРѕР»СЊ РҐСЂР°РЅРёС‚СЃСЏ РІ Р·Р°С€РёС„СЂРѕРІР°РЅРЅРѕРј РІРёРґРµ',
+`user_state` CHAR( 1 ) NOT NULL COMMENT 'РЎС‚Р°С‚СѓСЃ (A вЂ“ Р°РєС‚РёРІРµРЅ, B- Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅ)',
+`user_state_dtm` DATE NOT NULL COMMENT 'Р”Р°С‚Р°-РІСЂРµРјСЏ РёР·РјРµРЅРµРЅРёСЏ СЃС‚Р°С‚СѓСЃР°',
+`user_role` VARCHAR( 10 ) NOT NULL COMMENT 'Р РѕР»СЊ СЋР·РµСЂР° (adm-Р°РґРјРёРЅ, svisor - СЃСѓРїРµСЂРІР°Р№Р·РµСЂ, user -РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ), [role->role_name]',
+`user_supervisor` INT UNSIGNED NOT NULL COMMENT 'РџСЂРѕСЃС‚Р°РІР»СЏРµС‚СЃСЏ id СЃСѓРїРµСЂРІР°Р№Р·РµСЂР°',
+`user_login_dtm` DATETIME NOT NULL COMMENT 'Р’СЂРµРјСЏ РїРѕСЃР»РµРґРЅРµРіРѕ РІС…РѕРґР°. ',
 UNIQUE (
 `user_login` 
 )
-) ENGINE = MYISAM COMMENT = 'Таблица пользователей';
+) ENGINE = MYISAM COMMENT = 'РўР°Р±Р»РёС†Р° РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№';
 
-ALTER TABLE `user` ADD `user_create_dtm` DATETIME NOT NULL COMMENT 'Дата-время заведения в системе' AFTER `user_pwd` ;
+ALTER TABLE `user` ADD `user_create_dtm` DATETIME NOT NULL COMMENT 'Р”Р°С‚Р°-РІСЂРµРјСЏ Р·Р°РІРµРґРµРЅРёСЏ РІ СЃРёСЃС‚РµРјРµ' AFTER `user_pwd` ;
 
 
 CREATE TABLE `role` (
-`role_name` VARCHAR( 10 ) NOT NULL COMMENT 'Имя роли',
-`role_description` VARCHAR( 255 ) NOT NULL COMMENT 'Описание роли',
+`role_name` VARCHAR( 10 ) NOT NULL COMMENT 'РРјСЏ СЂРѕР»Рё',
+`role_description` VARCHAR( 255 ) NOT NULL COMMENT 'РћРїРёСЃР°РЅРёРµ СЂРѕР»Рё',
 PRIMARY KEY ( `role_name` ) 
-) ENGINE = MYISAM COMMENT = 'Хранит информацию о возможных уровнях доступа' ;
+) ENGINE = MYISAM COMMENT = 'РҐСЂР°РЅРёС‚ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РІРѕР·РјРѕР¶РЅС‹С… СѓСЂРѕРІРЅСЏС… РґРѕСЃС‚СѓРїР°' ;
 
 CREATE TABLE `mode` (
-`mode_name` VARCHAR( 10 ) NOT NULL COMMENT 'Имя режима (move, stop, park)',
-`mode_description` VARCHAR( 255 ) NOT NULL COMMENT 'Описание режима',
+`mode_name` VARCHAR( 10 ) NOT NULL COMMENT 'РРјСЏ СЂРµР¶РёРјР° (move, stop, park)',
+`mode_description` VARCHAR( 255 ) NOT NULL COMMENT 'РћРїРёСЃР°РЅРёРµ СЂРµР¶РёРјР°',
 PRIMARY KEY ( `mode_name` ) 
-) ENGINE = MYISAM COMMENT = 'Хранит информацию о режимах' ;
+) ENGINE = MYISAM COMMENT = 'РҐСЂР°РЅРёС‚ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ СЂРµР¶РёРјР°С…' ;
 
 CREATE TABLE `device` (
 `dev_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'Auto increment ID',
-`dev_imei` VARCHAR( 32 ) NOT NULL COMMENT 'IMEI устройства',
-`dev_state` CHAR( 1 ) NOT NULL COMMENT 'Статус устройства (A - активно, B - заблокировано)',
-`dev_create_dtm` DATETIME NOT NULL COMMENT 'Дата-время заведения в системе',
-`dev_state_dtm` DATETIME NOT NULL COMMENT 'Дата-время изменения статуса',
-`dev_sess_id` BIGINT UNSIGNED NOT NULL COMMENT 'Текущий номер сессии',
-`dev_mode` VARCHAR( 10 ) NOT NULL COMMENT 'Текущее состояние (move – движется, stop –стоит, park - запарковано)',
+`dev_imei` VARCHAR( 32 ) NOT NULL COMMENT 'IMEI СѓСЃС‚СЂРѕР№СЃС‚РІР°',
+`dev_state` CHAR( 1 ) NOT NULL COMMENT 'РЎС‚Р°С‚СѓСЃ СѓСЃС‚СЂРѕР№СЃС‚РІР° (A - Р°РєС‚РёРІРЅРѕ, B - Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅРѕ)',
+`dev_create_dtm` DATETIME NOT NULL COMMENT 'Р”Р°С‚Р°-РІСЂРµРјСЏ Р·Р°РІРµРґРµРЅРёСЏ РІ СЃРёСЃС‚РµРјРµ',
+`dev_state_dtm` DATETIME NOT NULL COMMENT 'Р”Р°С‚Р°-РІСЂРµРјСЏ РёР·РјРµРЅРµРЅРёСЏ СЃС‚Р°С‚СѓСЃР°',
+`dev_sess_id` BIGINT UNSIGNED NOT NULL COMMENT 'РўРµРєСѓС‰РёР№ РЅРѕРјРµСЂ СЃРµСЃСЃРёРё',
+`dev_mode` VARCHAR( 10 ) NOT NULL COMMENT 'РўРµРєСѓС‰РµРµ СЃРѕСЃС‚РѕСЏРЅРёРµ (move вЂ“ РґРІРёР¶РµС‚СЃСЏ, stop вЂ“СЃС‚РѕРёС‚, park - Р·Р°РїР°СЂРєРѕРІР°РЅРѕ)',
 UNIQUE (
 `dev_imei` 
 )
-) ENGINE = MYISAM COMMENT = 'Таблица устройств';
+) ENGINE = MYISAM COMMENT = 'РўР°Р±Р»РёС†Р° СѓСЃС‚СЂРѕР№СЃС‚РІ';
 
 CREATE TABLE `user_device` (
 `ud_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'Auto increment ID',
-`ud_user_id` INT UNSIGNED NOT NULL COMMENT 'ID пользователя',
-`ud_device_id` INT UNSIGNED NOT NULL COMMENT 'ID устройсва',
-`ud_alias` VARCHAR( 32 ) NOT NULL COMMENT 'Пользовательское наименование устройства'
-) ENGINE = MYISAM COMMENT = 'Таблица для связки пользователей и устройств' ;
+`ud_user_id` INT UNSIGNED NOT NULL COMMENT 'ID РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ',
+`ud_device_id` INT UNSIGNED NOT NULL COMMENT 'ID СѓСЃС‚СЂРѕР№СЃРІР°',
+`ud_alias` VARCHAR( 32 ) NOT NULL COMMENT 'РџРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРѕРµ РЅР°РёРјРµРЅРѕРІР°РЅРёРµ СѓСЃС‚СЂРѕР№СЃС‚РІР°'
+) ENGINE = MYISAM COMMENT = 'РўР°Р±Р»РёС†Р° РґР»СЏ СЃРІСЏР·РєРё РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ Рё СѓСЃС‚СЂРѕР№СЃС‚РІ' ;
 
-ALTER TABLE `user` CHANGE `user_state_dtm` `user_state_dtm` DATETIME NOT NULL COMMENT 'Дата-время изменения статуса' ;
+ALTER TABLE `user` CHANGE `user_state_dtm` `user_state_dtm` DATETIME NOT NULL COMMENT 'Р”Р°С‚Р°-РІСЂРµРјСЏ РёР·РјРµРЅРµРЅРёСЏ СЃС‚Р°С‚СѓСЃР°' ;
 
 ########################################################################################
 ########################################################################################

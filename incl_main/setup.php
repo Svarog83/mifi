@@ -52,9 +52,9 @@ if( $local_server )
 }
 else
 {
-	$www_main			= 'mifi.vetko.net';
-	$www_main_full		= 'http://mifi.vetko.net';
-	$real_www			= 'http://mifi.vetko.net';
+	$www_main			= 'www.fcmifi.ru';
+	$www_main_full		= 'http://www.fcmifi.ru';
+	$real_www			= 'http://www.fcmifi.ru';
 }
 
 ////////////////////////////////////////////////////////////////////////

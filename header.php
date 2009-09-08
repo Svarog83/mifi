@@ -14,7 +14,7 @@ Released   : 20090805
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>МИФИ. Футбольная команда</title>
-<meta name="keywords" content="МИФИ футбольная команда ЛФЛ чемпионы футбольные боги Сергей Ветко Ринатос" />
+<meta name="keywords" content="МИФИ футбольная команда ЛФЛ ЮЗАО юго-запад чемпионы футбольные боги Сергей Ветко Ринатос" />
 <link href="/css/default.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>

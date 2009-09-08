@@ -28,8 +28,15 @@ $message = '
 ' . $www_main_full . '/check_game/'.$select_game.'/
 
 Большая просьба отметиться!
+' . ( $form_message ? 
+'
+Комментарии:
+-----------------
+' . str_replace ( '<br>', "\n", html_entity_decode( $form_message, ENT_QUOTES ) ) . '
+-----------------
 
-Для входа на сайт использовать:
+' :'' ) . '
+Для входа на сайт использовать(если пароль еще не менялся на сайте):
 
 Логин: REPLACE_LOGIN
 Пароль: v

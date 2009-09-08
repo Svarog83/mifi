@@ -32,7 +32,28 @@
 					 
 					<input type="button" value="Отметиться" class="buttons" onclick="submit_form();">
 				</div>
-			</form>
+				</form>
+				
+				<br>
+				<table width="90%" border="1" cellpadding="2" cellspacing="2">
+				<tr colspan="4"><b>Подтвердили:</b></tr>
+				<tr>
+				<td>No</td>
+				<td>Имя</td>
+				<td>Фамилия</td>
+				<td>Комментарии</td>
+				</tr>
+				<? foreach ( $PlayersArr['good'] AS $row ): ?>
+				<tr style="font-weight:bold;">
+				<td><?= ++$i?></td>
+				<td><?= $row['user_name']?></td>
+				<td><?= $row['user_fam']?></td>
+				<td>&nbsp;<?= $row['gul_remarks']?></td>
+				</tr>
+				<? endforeach;?>
+				<? $i = 0; ?>
+				</table>
+				
 				<? endif;?>
 				</div>
 			</div>

@@ -303,3 +303,16 @@ function checkRights ( $options )
     return  $return_val;
 
 }
+
+function MatchTime( $date )
+{
+	$return_val = 'n/a';
+	$time = strtotime( $date );
+	if ( $time )
+	{
+		$return_val = strftime("%B, %d (%A) в %H:%M", $time );
+	}
+	
+	return $return_val;
+	
+}

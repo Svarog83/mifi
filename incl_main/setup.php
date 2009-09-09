@@ -5,6 +5,8 @@ $HTTP_REFERER   = $_SERVER['HTTP_REFERER'];
 if( function_exists('date_default_timezone_set') )
     date_default_timezone_set( 'Europe/Moscow' );
     
+setlocale(LC_TIME, 'ru_RU.utf8');
+    
 if( $_SERVER['HTTP_HOST'] == 'www.mifi.ru' )
 {   
 	$local_server		= true;

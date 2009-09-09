@@ -17,13 +17,22 @@
 				<? if ( count ( $error_message ) ): ?>
 				<?= implode ( '<br>', $error_message ); ?>
 				<? else: ?>
-				Игра с <b><?= getTeamName( $GA['g_team']) ?></b> в <b><?= $GA['g_date_time'] ?></b>(<i style="color:red;"><?= $GA['g_remarks'] ?></i>)
+				Игра с командой <b>"<?= getTeamName( $GA['g_team']) ?>"</b>.<br>
+			    Начало: <b><?= MatchTime( $GA['g_date_time'] ) ?></b>
+			    
+			    <? if ( $GA['g_remarks'] ): ?>
+			    <br>Комментарий:
+			    <i style="color:red;"><?= $GA['g_remarks'] ?></i>
+			    <br>
+
+			    <? endif; ?>
+			    
 				<br>
 
 				<form id="searchform" method="post" action="/save_check_game/" name="form">
 				<input type="hidden" name="select_game" value="<?= $select_game?>">
 				<div>
-					Буду на игре?<br>
+					<b>Буду на игре?</b><br>
 					 <input type="radio" name="form_go" value="1" <?= isset( $MA['gul_go'] ) && $MA['gul_go'] ? ' checked' : ''?> /> Да<br>
 					 <input type="radio" name="form_go" value="0" <?= isset( $MA['gul_go'] ) && !$MA['gul_go'] ? ' checked' : ''?> /> Нет<br>
 					 

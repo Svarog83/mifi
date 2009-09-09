@@ -14,7 +14,9 @@
 			<div class="post">
 			<h1 class="title">Ссылки</h1>
 				<div class="entry">
-				
+				Net-Pr.ru - <a href="http://net-pr.ru">оптимизация сайта, магазин продвижение</a>
+				<br>
+				<br>
 				<a target="_blank" href="http://www.ruslist.net/" title="RusList.net - белый каталог сайтов">RusList.net - белый каталог сайтов</a>
 				<br>
 

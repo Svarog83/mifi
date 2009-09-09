@@ -23,12 +23,12 @@
 				<form id="searchform" method="post" action="/save_check_game/" name="form">
 				<input type="hidden" name="select_game" value="<?= $select_game?>">
 				<div>
-					Буду?<br>
+					Буду на игре?<br>
 					 <input type="radio" name="form_go" value="1" <?= isset( $MA['gul_go'] ) && $MA['gul_go'] ? ' checked' : ''?> /> Да<br>
 					 <input type="radio" name="form_go" value="0" <?= isset( $MA['gul_go'] ) && !$MA['gul_go'] ? ' checked' : ''?> /> Нет<br>
 					 
 					  Комментарии<br>
-					<input type="text" name="form_remarks" id="s" size="15" value="<?= $MA['gul_remarks']?>" /><br>
+					<input type="text" name="form_remarks" id="s" size="40" value="<?= $MA['gul_remarks']?>" /><br>
 					 
 					<input type="button" value="Отметиться" class="buttons" onclick="submit_form();">
 				</div>

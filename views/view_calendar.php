@@ -21,6 +21,7 @@
 					<td>Противник</td>
 					<td>Дата</td>
 					<td>Комментарии</td>
+					<td>Результат</td>
 				</tr>
 				
 				<? if ( !count ( $MatchesArr ) ):?>
@@ -33,6 +34,7 @@
 						<td><?= $TeamsArr[$row['g_team']]?></td>
 						<td><?= $row['g_date_time']?></td>
 						<td>&nbsp;<?= $row['g_remarks']?></td>
+						<td>&nbsp;<?= $row['g_result']?></td>
 					</tr>
 					<? endforeach; ?>
 				<? endif; ?>

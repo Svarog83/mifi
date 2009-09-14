@@ -8,6 +8,8 @@
 ##  Изменил в DB:	   SV 2008-08-25
 ##  Изменил на сервере:	   SV 2008-08-25
 
+ALTER TABLE `game` ADD `g_result` VARCHAR( 10 ) NOT NULL COMMENT 'Результат' AFTER `g_remarks` ;
+
 CREATE TABLE `mifi`.`email` (
 `em_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'Auto increment ID',
 `em_game` INT UNSIGNED NOT NULL COMMENT 'Game ID',

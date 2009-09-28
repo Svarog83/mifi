@@ -20,58 +20,47 @@
 				<? echo implode ( '<br>', $error_message ); ?>
 				<? else : ?>
 				
-<script type="text/javascript" src="/highslide/highslide-with-gallery.js"></script>
-<link rel="stylesheet" type="text/css" href="/highslide/highslide.css" />
-<!--[if lt IE 7]>
-<link rel="stylesheet" type="text/css" href="/highslide/highslide-ie6.css" />
-<![endif]-->
-
-
-
-<!--
-    2) Optionally override the settings defined at the top
-    of the highslide.js file. The parameter hs.graphicsDir is important!
--->
-
-<script type="text/javascript">
-hs.graphicsDir = '/highslide/graphics/';
-hs.align = 'center';
-hs.transitions = ['expand', 'crossfade'];
-hs.fadeInOut = true;
-hs.dimmingOpacity = 0.8;
-hs.outlineType = 'rounded-white';
-hs.captionEval = 'this.thumb.alt';
-hs.marginBottom = 105; // make room for the thumbstrip and the controls
-hs.numberPosition = 'caption';
-
-// Add the slideshow providing the controlbar and the thumbstrip
-hs.addSlideshow({
-	//slideshowGroup: 'group1',
-	interval: 3000,
-	repeat: false,
-	useControls: true,
-	overlayOptions: {
-		className: 'text-controls',
-		position: 'bottom center',
-		relativeTo: 'viewport',
-		offsetY: -60
-	},
-	thumbstrip: {
-		position: 'bottom center',
-		mode: 'horizontal',
-		relativeTo: 'viewport'
-	}
-});
-</script>
-				<div class="highslide-gallery" style="width: 600px; margin: auto">
+				<script type="text/javascript" src="/javascripts/jquery.js"></script>
+				<script type="text/javascript" src="/javascripts/jquery.lightbox-0.5.js"></script>
+				<link rel="stylesheet" type="text/css" href="/css/jquery.lightbox-0.5.css" media="screen" />
+				
+			    <script type="text/javascript">
+			    $(function() {
+			        $('#gallery a').lightBox();
+			    });
+			    </script>
+			   	<style type="text/css">
+				/* jQuery lightBox plugin - Gallery style */
+				#gallery {
+					background-color: #E1E1E1;
+					padding: 0px;
+					width: 450px;
+				}
+				#gallery ul { list-style: none; }
+				#gallery ul li { display: inline; }
+				#gallery ul img {
+					border: 5px solid #3e3e3e;
+					border-width: 5px 5px 20px;
+				}
+				#gallery ul a:hover img {
+					border: 5px solid #fff;
+					border-width: 5px 5px 20px;
+					color: #fff;
+				}
+				#gallery ul a:hover { color: #fff; }
+				</style>
+								
+				
+				<div id="gallery">
+				<ul>
 				<? $i = 0; ?>
 				<? foreach ( $ImagesArr AS $image ):?>
-				
-				<a class='highslide' href='/galleries/<?= $directory?>/<?= $image?>' onclick="return hs.expand(this)">
-				<img src='/galleries/<?= $directory?>/thumbs/<?= $image?>' alt='Mountain valley <?= $i?>'/></a>
-				
-				<? $i++; if ( $i % 4 == 0 ) echo '<br>'; ?>
+					<li>
+						<a href='/galleries/<?= $directory?>/<?= $image?>' title="Href descr <?= $i?>."><img src='/galleries/<?= $directory?>/thumbs/<?= $image?>' alt='Descr here <?= $i?>'/></a>
+					</li>
 				<? endforeach;?>
+				
+				</ul>
 				</div>
 				
 				<? endif;?>

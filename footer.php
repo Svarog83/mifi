@@ -3,6 +3,7 @@
 	<p class="copyright">&copy;&nbsp;&nbsp;<?= ( date ( "Y" ) != '2009' ? '2009-' : '' ) . date ( "Y" ) ?> Команда МИФИ &nbsp;&bull;&nbsp; Сделал <a href="mailto:S.Vetko@fcmifi.ru">Сергей Ветко</a>.</p>
 </div>
 
+<? if ( !$local_server ): ?>
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -12,6 +13,7 @@ try {
 var pageTracker = _gat._getTracker("UA-10557416-1");
 pageTracker._trackPageview();
 } catch(err) {}</script>
+<? endif; ?>
 
 </body>
 </html>

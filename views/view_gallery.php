@@ -20,43 +20,54 @@
 				<? echo implode ( '<br>', $error_message ); ?>
 				<? else : ?>
 				
+				<link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css" media="screen" />
 				<script type="text/javascript" src="/javascripts/jquery.js"></script>
-				<script type="text/javascript" src="/javascripts/jquery.lightbox-0.5.js"></script>
-				<link rel="stylesheet" type="text/css" href="/css/jquery.lightbox-0.5.css" media="screen" />
+				<script type="text/javascript" src="/javascripts/jquery.easing.1.3.js"></script>
+				<script type="text/javascript" src="/javascripts/jquery.fancybox-1.2.1.js"></script>
 				
-			    <script type="text/javascript">
-			    $(function() {
-			        $('#gallery a').lightBox();
-			    });
-			    </script>
-			   	<style type="text/css">
-				/* jQuery lightBox plugin - Gallery style */
-				#gallery {
+				<script type="text/javascript">
+				$(document).ready(function() {
+					$("#wrap a").fancybox();
+				});
+			</script>
+			<style>
+				html, body {
+					font: normal 11px Tahoma;
+					color: #333;
+				}
+				
+				a {
+					outline: none;	
+				}
+				
+				div #wrap {
 					background-color: #E1E1E1;
 					padding: 0px;
 					width: 450px;
 				}
-				#gallery ul { list-style: none; }
-				#gallery ul li { display: inline; }
-				#gallery ul img {
-					border: 5px solid #3e3e3e;
+				
+				#wrap ul { list-style: none; }
+				#wrap ul li { display: inline; }
+				#wrap ul img {
+					border: 5px solid #E1E1E1;
 					border-width: 5px 5px 20px;
 				}
-				#gallery ul a:hover img {
+				#wrap ul a:hover img {
 					border: 5px solid #fff;
 					border-width: 5px 5px 20px;
 					color: #fff;
 				}
-				#gallery ul a:hover { color: #fff; }
-				</style>
+				
+				#wrap ul a:hover { color: #fff; }
+			</style>
 								
 				
-				<div id="gallery">
+				<div id="wrap">
 				<ul>
 				<? $i = 0; ?>
 				<? foreach ( $ImagesArr AS $image ):?>
 					<li>
-						<a href='/galleries/<?= $directory?>/<?= $image?>' title="Href descr <?= $i?>."><img src='/galleries/<?= $directory?>/thumbs/<?= $image?>' alt='Descr here <?= $i?>'/></a>
+						<a rel="group" href='/galleries/<?= $directory?>/<?= $image?>' title="Href descr <?= $i?>."><img src='/galleries/<?= $directory?>/thumbs/<?= $image?>' alt='Descr here <?= $i?>'/></a>
 					</li>
 				<? endforeach;?>
 				

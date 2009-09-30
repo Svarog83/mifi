@@ -39,5 +39,7 @@ if ( is_dir( $path_full ) && is_dir( $path_thumbs ) )
 	 }
 }
 
+sort( $ImagesArr, SORT_STRING );
+
 if ( !count ( $ImagesArr ) && !$cache_html )
 	$error_message[] = 'Такая галерея не найдена';

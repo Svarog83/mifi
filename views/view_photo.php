@@ -16,12 +16,9 @@
 			<div class="post">
 				<h1 class="title">Фотографии</h1>
 				<div class="entry">
-					Посмотреть можно по ссылке <a href="http://gallery.vetko.net/Football-2009" target="_blank">Матч с командой Спарта-2</a>
 					<br>
+					<a href="/gallery/sparta-2/">Матч против команды "Спарта-2"</a>
 					<br>
-					
-					<a href="/gallery/sparta2009/">Матч против Спарта-2</a>
-					
 					* Доступ к фотографиям Ринатоса - только по платной подписке. Обращайтесь:)
 
 				</div>

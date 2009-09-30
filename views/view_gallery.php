@@ -11,10 +11,23 @@
 			</ul>
 		</div>
 		
+		<? 
+		if ( $cache_html ) 
+		{
+			echo $cache_html;
+		}
+		else 
+		{ 
+			start_cache();
+		?>
+		
 		<!-- start content -->
 		<div id="content">
 			<div class="post">
 				<h1 class="title">Фотографии</h1>
+				<br>
+				Листать можно стрелками на клавиатуре "Вправо" и "Влево".
+				<br>
 				<div class="entry">
 				<? if ( count ( $error_message ) ): ?>
 				<? echo implode ( '<br>', $error_message ); ?>
@@ -67,7 +80,7 @@
 				<? $i = 0; ?>
 				<? foreach ( $ImagesArr AS $image ):?>
 					<li>
-						<a rel="group" href='/galleries/<?= $directory?>/<?= $image?>' title="Href descr <?= $i?>."><img src='/galleries/<?= $directory?>/thumbs/<?= $image?>' alt='Descr here <?= $i?>'/></a>
+						<a rel="group" href='/galleries/<?= $directory?>/<?= $image?>' title="<?= isset( $ImageDescr[$image] ) ? $ImageDescr[$image] : ''?>"><img src='/galleries/<?= $directory?>/thumbs/<?= $image?>' alt='' /></a>
 					</li>
 				<? endforeach;?>
 				
@@ -81,7 +94,10 @@
 			</div>
 		</div>
 		<!-- end content -->
-		
+		<?
+				end_cache( $cache_name );
+			}
+		?>
 		<!-- start sidebars -->
 		<div id="sidebar2" class="sidebar" name="form">
 			<ul>

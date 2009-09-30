@@ -44,8 +44,9 @@
 				</form>
 				
 				<br>
+				
 				<table width="90%" border="1" cellpadding="2" cellspacing="2">
-				<tr colspan="4"><b>Подтвердили:</b></tr>
+				<tr colspan="4"><b>Будут на игре:</b></tr>
 				<tr>
 				<td>No</td>
 				<td>Имя</td>
@@ -53,12 +54,33 @@
 				<td>Комментарии</td>
 				</tr>
 				<? foreach ( $PlayersArr['good'] AS $row ): ?>
-				<tr style="font-weight:bold;">
-				<td><?= ++$i?></td>
-				<td><?= $row['user_name']?></td>
-				<td><?= $row['user_fam']?></td>
-				<td>&nbsp;<?= $row['gul_remarks']?></td>
+					<tr style="font-weight:bold;">
+					<td><?= ++$i?></td>
+					<td><?= $row['user_name']?></td>
+					<td><?= $row['user_fam']?></td>
+					<td>&nbsp;<?= $row['gul_remarks']?></td>
+					</tr>
+				<? endforeach;?>
+				<? $i = 0; ?>
+				</table>
+				
+				<? $i = 0; ?>
+				<br>
+				<table width="90%" border="1" cellpadding="2" cellspacing="2">
+				<tr colspan="4"><b>Не смогут:</b></tr>
+				<tr>
+				<td>No</td>
+				<td>Имя</td>
+				<td>Фамилия</td>
+				<td>Комментарии</td>
 				</tr>
+				<? foreach ( $PlayersArr['bad'] AS $row ): ?>
+					<tr style="font-weight:bold;">
+					<td><?= ++$i?></td>
+					<td><?= $row['user_name']?></td>
+					<td><?= $row['user_fam']?></td>
+					<td>&nbsp;<?= $row['gul_remarks']?></td>
+					</tr>
 				<? endforeach;?>
 				<? $i = 0; ?>
 				</table>

@@ -314,5 +314,59 @@ function MatchTime( $date )
 	}
 	
 	return $return_val;
+}
+
+function cache_exists ( $file_name )
+{
+	global $setup_cache_folder, $setup_cache_reset;
+	return ( $setup_cache_reset ? false : file_exists( $setup_cache_folder . $file_name ) );
+}
+
+function get_cache ( $file_name )
+{
+	global $setup_cache_folder;
+	return file_get_contents( $setup_cache_folder . $file_name );
+}
+
+function start_cache ()
+{
+	ob_start();
+	return true;
+}
+
+function end_cache( $file_name )
+{
+	global $setup_cache_folder;
+	$cache_html = ob_get_contents();
+	ob_end_flush();
 	
+	$file = fopen( $setup_cache_folder . $file_name , "w" );
+	fwrite( $file, $cache_html );
+	fclose( $file );
+	
+	return true;
+}
+
+function win2utf( $s )    {
+   for($i=0, $m=strlen($s); $i<$m; $i++)    {
+       $c=ord($s[$i]);
+       if ($c<=127) {$t.=chr($c); continue; }
+       if ($c>=192 && $c<=207)    {$t.=chr(208).chr($c-48); continue; }
+       if ($c>=208 && $c<=239) {$t.=chr(208).chr($c-48); continue; }
+       if ($c>=240 && $c<=255) {$t.=chr(209).chr($c-112); continue; }
+       if ($c==184) { $t.=chr(209).chr(209); continue; };
+            if ($c==168) { $t.=chr(208).chr(129);  continue; };
+            if ($c==184) { $t.=chr(209).chr(145); continue; }; #ё
+            if ($c==168) { $t.=chr(208).chr(129); continue; }; #Ё
+            if ($c==179) { $t.=chr(209).chr(150); continue; }; #і
+            if ($c==178) { $t.=chr(208).chr(134); continue; }; #І
+            if ($c==191) { $t.=chr(209).chr(151); continue; }; #ї
+            if ($c==175) { $t.=chr(208).chr(135); continue; }; #ї
+            if ($c==186) { $t.=chr(209).chr(148); continue; }; #є
+            if ($c==170) { $t.=chr(208).chr(132); continue; }; #Є
+            if ($c==180) { $t.=chr(210).chr(145); continue; }; #ґ
+            if ($c==165) { $t.=chr(210).chr(144); continue; }; #Ґ
+            if ($c==184) { $t.=chr(209).chr(145); continue; }; #Ґ            
+   }
+   return $t;
 }

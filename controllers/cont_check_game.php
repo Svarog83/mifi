@@ -29,8 +29,9 @@ while ( $row = mysql_fetch_array ( $result, MYSQL_ASSOC ) )
 	{
 		$PlayersArr['good'][] = $row;
 	}
-	else 
+	else if ( !$row['gul_go'] && $row['gul_id'] )
 	{
 		$PlayersArr['bad'][] = $row;
 	}
 }
+

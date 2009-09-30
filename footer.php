@@ -1,6 +1,8 @@
 <!-- end page -->
 <div id="footer">
-	<p class="copyright">&copy;&nbsp;&nbsp;<?= ( date ( "Y" ) != '2009' ? '2009-' : '' ) . date ( "Y" ) ?> Команда МИФИ &nbsp;&bull;&nbsp; Сделал <a href="mailto:S.Vetko@fcmifi.ru">Сергей Ветко</a>.</p>
+	<p class="copyright">&copy;&nbsp;&nbsp;<?= ( date ( "Y" ) != '2009' ? '2009-' : '' ) . date ( "Y" ) ?> Команда МИФИ &nbsp;&bull;&nbsp; Сделал <a href="mailto:S.Vetko@fcmifi.ru">Сергей Ветко</a>.
+<? echo " Page generated in $time_exec seconds" . ( $cache_html ? ' (Cached version)' : '' );  ?>	
+</p>
 </div>
 
 <? if ( !$local_server ): ?>

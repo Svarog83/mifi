@@ -18,6 +18,7 @@ else
 
 $setup_secret_word = 'it_is_impossible_to_guess';
 $setup_timeout = 86400 * 7; //7 days
+$setup_cache_folder = $_SERVER['DOCUMENT_ROOT'] . '/cache/';
 
 define ( "FATAL",	E_USER_ERROR);
 define ( "ERROR",	E_USER_WARNING);

@@ -10,8 +10,12 @@ if ( isset ( $_SERVER['REDIRECT_URL'] ) )
 		$todo = $GLOBAL_PARAMS[0];
 }
 
+$setup_cache_reset = ( isset ( $cache_reset ) ? (int)$cache_reset : 0 );
+
 if ( $todo != 'login' )
 	require_once( $_SERVER['DOCUMENT_ROOT'] . '/incl_main/check_security.php' );
+	
+$setup_time_start = microtime( true );
 
 /*if ( !$todo && !$user_authorized )
     $todo = 'not_login';
@@ -49,5 +53,8 @@ else
     $file_name = $dir_views . 'wrong_action.php';
     
 require_once( $file_name );
+
+
+$time_exec 	= microtime( true ) - $setup_time_start;
 
 require_once( 'footer.php' );

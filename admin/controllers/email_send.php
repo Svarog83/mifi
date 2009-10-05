@@ -22,12 +22,11 @@ $message = '
 ' . date ( "Y-m-d", $time ) . ' в ' . date ( "H:i", $time ) . ' состоится игра против команды "' . getTeamName( $MatchArr['g_team'] ) . '"
 ' . ( $MatchArr['g_remarks'] ? '(Доп. информация: ' . $MatchArr['g_remarks'] .')' : '' ) . '
 
-Нужно обязательно отметиться на сайте.
+Нужно отметиться на сайте.
 
 Подробности можно узнать по адресу:
 ' . $www_main_full . '/check_game/'.$select_game.'/
 
-Большая просьба отметиться!
 ' . ( $form_message ? 
 '
 Комментарии:
@@ -36,12 +35,10 @@ $message = '
 -----------------
 
 ' :'' ) . '
-Для входа на сайт использовать(если пароль еще не менялся на сайте):
+Для входа на сайт использовать:
 
 Логин: REPLACE_LOGIN
-Пароль: v
-
-Пароль после входа нужно сменить!
+REPLACE_PASS
 
 Спасибо.
 
@@ -55,8 +52,12 @@ $message = '
 		'Reply-To: S.Vetko@fcmifi.ru' . "\r\n" .
 		'Content-type: text/plain; charset=utf-8';
 		
+		$password = ( $row['user_pwd'] == '9e3669d19b675bd57058fd4664205d2a' ? 'Пароль: v (лучше сменить его!)' : '' );
+		
 		$mess = str_replace( "REPLACE_NAME", $row['user_name'], $message );
 		$mess = str_replace( "REPLACE_LOGIN", $row['user_login'], $mess );
+		$mess = str_replace( "REPLACE_PASS", $password, $mess );
+		
 		
 		mail ( $row['user_email'], 'Мифи. Матч против команды ' . getTeamName( $MatchArr['g_team'] ) , $mess, $headers );
 		

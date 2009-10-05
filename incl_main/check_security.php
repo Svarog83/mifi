@@ -30,7 +30,7 @@ else if ( is_array ( $_SESSION ) && count ( $_SESSION ) )
 		echo '<br>REMOTE_ADDR = ' . $_SERVER['REMOTE_ADDR'] . '<br><br>';
 		echo '<br>$setup_secret_word = ' . $setup_secret_word . '<br><br>';*/
 		
-		$md5 = md5 ( $_SESSION['user_id'] . $_SESSION['timeout'] . $_SERVER['REMOTE_ADDR'] . $setup_secret_word );
+		$md5 = md5 ( $_SESSION['user_id'] . $_SESSION['timeout'] . $setup_secret_word );
 		
 		if ( $md5 != $_SESSION['hash'] )
 			$error_message[] = 'Данные изменились.';
@@ -60,7 +60,9 @@ if ( count ( $error_message ) && $todo )
 {
 //		echo implode ( ', ', $error_message );
 		//echo '<br><a href="/admin/">Нужно войти опять</a>';
-		mail ( "sergey@vetko.net", 'Session problems in MIFI', "error = \n" . print_r ( $error_message, TRUE ) . "\n\n" . print_r ( $_SESSION, TRUE ) . "\n\n todo = " . $todo . "\n\n UA = " . print_r ( $UA, TRUE ) );
+		if ( isset( $_SESSION['user_id'] ) )
+			mail ( "sergey@vetko.net", 'Session problems in MIFI', "error = \n" . print_r ( $error_message, TRUE ) . "\n\n" . print_r ( $_SESSION, TRUE ) . "\n\n todo = " . $todo . "\n\n UA = " . print_r ( $UA, TRUE ) );
+			
 		unset ( $_SESSION['user_id'] );
 		session_destroy();
 //		header( "Location: /");

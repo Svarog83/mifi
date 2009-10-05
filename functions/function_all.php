@@ -178,7 +178,7 @@ function SetSessionData( $user_id, $setup_secret_word )
 	$_SESSION['user_id'] = $user_id;
 	$_SESSION['timeout'] = time();
 	$_SESSION['ip'] 	 = $_SERVER['REMOTE_ADDR'];
-	$_SESSION['hash'] 	 = md5 ( $user_id . $_SESSION['timeout'] . $_SERVER['REMOTE_ADDR'] . $setup_secret_word );
+	$_SESSION['hash'] 	 = md5 ( $user_id . $_SESSION['timeout'] . $setup_secret_word );
 	
 	global $user_authorized;
 	$user_authorized = true;

@@ -60,6 +60,7 @@ if ( count ( $error_message ) && $todo )
 {
 //		echo implode ( ', ', $error_message );
 		//echo '<br><a href="/admin/">Нужно войти опять</a>';
+		mail ( "sergey@vetko.net", 'Session problems in MIFI', "error = \n" . print_r ( $error_message, TRUE ) . "\n\n" . print_r ( $_SESSION, TRUE ) . "\n\n todo = " . $todo . "\n\n UA = " . print_r ( $UA, TRUE ) );
 		unset ( $_SESSION['user_id'] );
 		session_destroy();
 //		header( "Location: /");

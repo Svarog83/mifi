@@ -1,3 +1,5 @@
+<? $component_name = 'news'; include( 'include_component.php' ); ?>
+<br>
 <li>
 	<? if ( !$user_authorized ): ?>
 	
@@ -34,3 +36,4 @@
 	<input type="button" value="Выйти" class="buttons" onclick="location.href='/exit/'">
 	<? endif;?>
 </li>
+<br>

@@ -340,9 +340,12 @@ function end_cache( $file_name )
 	$cache_html = ob_get_contents();
 	ob_end_flush();
 	
-	$file = fopen( $setup_cache_folder . $file_name , "w" );
-	fwrite( $file, $cache_html );
-	fclose( $file );
+	if ( !is_dir( $setup_cache_folder . $file_name ) )
+	{
+		$file = fopen( $setup_cache_folder . $file_name , "w" );
+		fwrite( $file, $cache_html );
+		fclose( $file );
+	}
 	
 	return true;
 }

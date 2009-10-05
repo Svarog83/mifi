@@ -17,7 +17,7 @@ else
 }
 
 $setup_secret_word = 'it_is_impossible_to_guess';
-$setup_timeout = 86400 * 7; //7 days
+$setup_timeout = 86400 * 10; //10 days
 $setup_cache_folder = $_SERVER['DOCUMENT_ROOT'] . '/cache/';
 
 define ( "FATAL",	E_USER_ERROR);
@@ -73,10 +73,10 @@ if( $local_server )
 }
 else
 {
-	$db_host_name_main	= 'mysql1032.servage.net';
-	$db_name_main		= 'mifi';
-	$db_user_name_main	= 'mifi';
-	$db_password_main	= 'dtnjrhtc1';
+	$db_host_name_main	= 'mysql1048.servage.net';
+	$db_name_main		= 'svar_elia';
+	$db_user_name_main	= 'svar_elia';
+	$db_password_main	= 'dtnjrhtc';
 }
 
 ////////////////////////////////////////////////////////////////////////

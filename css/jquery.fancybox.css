@@ -285,8 +285,8 @@ div#fancy_title {
 div#fancy_photos_numb {
 	position: absolute;
 	bottom: 12px;
-	left: 8px;
-	width: 100%;
+	padding-left: 8px;
+	width: 100px;
 	z-index: 150;
 	display: block;
 	color: #000;

@@ -282,6 +282,18 @@ div#fancy_title {
 	display: none;
 }
 
+div#fancy_photos_numb {
+	position: absolute;
+	bottom: 12px;
+	left: 8px;
+	width: 100%;
+	z-index: 150;
+	display: block;
+	color: #000;
+	background-color: #FFF;
+	font: bold 12px Arial;
+}
+
 div#fancy_title div {
 	color: #FFF;
 	font: bold 12px Arial;

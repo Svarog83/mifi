@@ -73,10 +73,10 @@ if( $local_server )
 }
 else
 {
-	$db_host_name_main	= 'mysql1048.servage.net';
-	$db_name_main		= 'svar_elia';
-	$db_user_name_main	= 'svar_elia';
-	$db_password_main	= 'dtnjrhtc';
+	$db_host_name_main	= 'mysql1079.servage.net';
+	$db_name_main		= 'mifi2';
+	$db_user_name_main	= 'mifi2';
+	$db_password_main	= 'dtnjrhtc1';
 }
 
 ////////////////////////////////////////////////////////////////////////

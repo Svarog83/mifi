@@ -33,5 +33,7 @@ while ( $row = mysql_fetch_array ( $result, MYSQL_ASSOC ) )
 	{
 		$PlayersArr['bad'][] = $row;
 	}
+
+
 }
 

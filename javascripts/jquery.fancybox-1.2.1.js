@@ -58,7 +58,7 @@
 
 			} else {
 				var item = {};
-
+				
 				if (!elem.rel || elem.rel == '') {
 					var item = {href: elem.href, title: elem.title};
 
@@ -141,7 +141,7 @@
 			if (opts.imageScale) {
 				var w = $.fn.fancybox.getViewport();
 
-				var r = Math.min(Math.min(w[0] - 36, imagePreloader.width) / imagePreloader.width, Math.min(w[1] - 60, imagePreloader.height) / imagePreloader.height);
+				var r = Math.min(Math.min(w[0] - 60, imagePreloader.width) / imagePreloader.width, Math.min(w[1] - 84, imagePreloader.height) / imagePreloader.height);
 
 				var width = Math.round(r * imagePreloader.width);
 				var height = Math.round(r * imagePreloader.height);
@@ -150,7 +150,7 @@
 				var width = imagePreloader.width;
 				var height = imagePreloader.height;
 			}
-
+			
 			_set_content('<img alt="" id="fancy_img" src="' + imagePreloader.src + '" />', width, height);
 		};
 
@@ -176,8 +176,17 @@
 
 		function _set_content(value, width, height) {
 			busy = true;
+			
+			if ( $("#fancy_photos_numb") )
+			{
+				$("#fancy_photos_numb").show();
+				$("#fancy_photos_numb").html( "Фото " + ( opts.itemCurrent + 1 ) + " из " + opts.itemArray.length );
+			}
 
 			var pad = opts.padding;
+			var small_pad = pad - 10;
+			if ( small_pad <= 0 )
+				small_pad = 2;
 
 			if (isIE) {
 				$("#fancy_content")[0].style.removeExpression("height");
@@ -189,10 +198,10 @@
 				height	+= pad * 2;
 
 				$("#fancy_content").css({
-					'top'		: pad + 'px',
-					'right'		: pad + 'px',
+					'top'		: small_pad + 'px',
+					'right'		: small_pad + 'px',
 					'bottom'	: pad + 'px',
-					'left'		: pad + 'px',
+					'left'		: small_pad + 'px',
 					'width'		: 'auto',
 					'height'	: 'auto'
 				});
@@ -276,6 +285,8 @@
 					});
 				}
 			}
+			
+//			$("#fancy_title").html("fuck you");
 		};
 
 		function _set_navigation() {
@@ -501,6 +512,8 @@
 		html += '<div id="fancy_content"></div>';
 
 		html +=  '<div id="fancy_title"></div>';
+		
+		html +=  '<div id="fancy_photos_numb"></div>';
 
 		html += '</div>';
 
@@ -519,7 +532,7 @@
 	};
 
 	$.fn.fancybox.defaults = {
-		padding				:	10,
+		padding				:	18,
 		imageScale			:	true,
 		zoomOpacity			:	false,
 		zoomSpeedIn			:	0,

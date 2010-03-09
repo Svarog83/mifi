@@ -15,6 +15,7 @@
 <td>E-mail</td>
 <td>Комментарии</td>
 <td>&nbsp;</td>
+<td>&nbsp;</td>
 </tr>
 <? foreach ( $PlayersArr['good'] AS $row ): ?>
 <tr style="font-weight:bold;">
@@ -23,7 +24,11 @@
 <td><?= $row['user_fam']?></td>
 <td><?= $row['user_email']?></td>
 <td>&nbsp;<?= $row['gul_remarks']?></td>
+
 <td align="center"><img src="/icon/exit.gif" title="Человека не будет" style="cursor:pointer;" onclick="location.href='./?todo=match_players&select_game=<?= $select_game?>&select_user=<?= $row['user_id']?>&status=0&no_links=1';"></td>
+
+<td><input type="checkbox" name="check_user[]" value="<?= $row['user_id'] ?>" <?= !isset ( $EmailsArr[$row['user_id']] ) && $row['user_email'] ? ' checked' : '' ?> title="Отправить письмо"></td>
+
 </tr>
 <? endforeach;?>
 <? $i = 0; ?>
@@ -51,7 +56,9 @@
 <td><?= $row['gul_id'] ? 'Да' : 'Нет'?></td>
 <td>&nbsp;<?= $row['gul_remarks']?></td>
 <td align="center"><img src="/icon/button.gif" title="Человек будет" style="cursor:pointer;" onclick="location.href='./?todo=match_players&select_game=<?= $select_game?>&select_user=<?= $row['user_id']?>&status=1&no_links=1';"></td>
+
 <td><input type="checkbox" name="check_user[]" value="<?= $row['user_id'] ?>" <?= !isset ( $EmailsArr[$row['user_id']] ) && $row['user_email'] ? ' checked' : '' ?> title="Отправить письмо"></td>
+
 </tr>
 <? endforeach;?>
 </table>

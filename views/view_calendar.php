@@ -31,7 +31,17 @@
 					<? $i++ ?>
 					<tr>
 						<td><?= $i?></td>
-						<td><?= $TeamsArr[$row['g_team']]?></td>
+						<td>
+						<? if ( $user_authorized ): ?>
+						<a href="/check_game/<?= $row['g_id'] ?>/" title="Посмотреть обсуждение">
+						<? endif;?>
+
+						<?= $TeamsArr[$row['g_team']]?>
+
+						<? if ( $user_authorized ): ?>
+						</a>
+						<? endif;?>
+						</td>
 						<td><?= $row['g_date_time']?></td>
 						<td>&nbsp;<?= $row['g_remarks']?></td>
 						<td>&nbsp;<?= $row['g_result']?></td>

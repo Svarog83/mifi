@@ -1,6 +1,6 @@
 <?
 
-$query = "SELECT * FROM game WHERE ";
+$query = "SELECT game.* FROM game, team WHERE g_team = t_id && t_activ = 1 &&";
 
 if ( $select_team )
 	$query .= "g_team = '$select_team' && ";

@@ -44,7 +44,13 @@
 						</td>
 						<td><?= $row['g_date_time']?></td>
 						<td>&nbsp;<?= $row['g_remarks']?></td>
-						<td>&nbsp;<?= $row['g_result']?></td>
+						<td>&nbsp;
+						<? if ( $row['g_report'] ):?>
+						<a href="<?= $row['g_report']?>" title="Посмотреть отчет о матче"><?= $row['g_result']?></a>
+						<? else: ?>
+						<?= $row['g_result']?>
+						<? endif; ?>
+						</td>
 					</tr>
 					<? endforeach; ?>
 				<? endif; ?>

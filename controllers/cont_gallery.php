@@ -6,6 +6,10 @@ $path_full =  $_SERVER['DOCUMENT_ROOT'] . '/galleries/' . $directory . '/';
 $path_thumbs = $_SERVER['DOCUMENT_ROOT'] . '/galleries/' . $directory . '/thumbs/';
 
 $cache_html = '';
+$report_html = '';
+
+if ( file_exists ( $_SERVER['DOCUMENT_ROOT'] . '/galleries/' . $directory . '/report.html' ) )
+    $report_html = file_get_contents(  $_SERVER['DOCUMENT_ROOT'] . '/galleries/' . $directory . '/report.html' );
 
 $ImagesArr = $ImageDescr = array();
 if ( is_dir( $path_full ) && is_dir( $path_thumbs ) )

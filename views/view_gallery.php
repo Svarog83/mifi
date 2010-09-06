@@ -25,6 +25,7 @@
 		<div id="content">
 			<div class="post">
 				<h1 class="title">Фотографии</h1>
+				<?= $report_html ? '<br><br>' . $report_html . '<br><br>' : "" ?>
 				<br>
 				Листать можно стрелками на клавиатуре "Вправо" и "Влево".
 				<br>

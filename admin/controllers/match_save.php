@@ -29,7 +29,8 @@ if ( !count ( $error_message ) )
 	g_team 				= '$g_team',
 	g_date_time			= '$g_date_time',
 	g_remarks 			= '$g_remarks',
-	g_result 			= '$g_result'
+	g_result 			= '$g_result',
+	g_report 			= '$g_report'
 	" . ( $edit_flag ? "WHERE g_id = '$select_game'" : "" );
 	$result = mysql_query( $query ) or eu( __FILE__, __LINE__, $query );
 }

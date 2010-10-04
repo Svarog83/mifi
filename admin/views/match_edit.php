@@ -49,6 +49,13 @@ echo PrepareSelect( $arr );
 </td>
 </tr>
 
+<tr>
+<td>Отчет</td>
+<td>
+<input type="text" name="g_report" value="<?= isset ( $MatchArr['g_report'] ) ? $MatchArr['g_report'] : '' ?>" size="60">
+</td>
+</tr>
+
 </table>
 
 <br>

@@ -23,4 +23,7 @@
 			</li>
 			<? endforeach; ?>
 		</ul>
+		<?php if ( !preg_match ( "/MSIE/i", $_SERVER['HTTP_USER_AGENT'] ) ): ?>
+		<h2 style="cursor:pointer;" onclick="var s = document.createElement('script'); s.type='text/javascript'; document.body.appendChild(s); s.src='http://erkie.github.com/asteroids.min.js'; void(0);">Kill'em All!</h2>
+		<?php endif; ?>
 	</li>

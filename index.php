@@ -46,7 +46,7 @@ require_once( 'header.php' );
 //for debugging
 if ( $local_server )
     require_once( $_SERVER['DOCUMENT_ROOT'] . '/incl_main/dBug.php' );  
-    
+
 if ( file_exists( $dir_views . $view ) )
     $file_name = $dir_views . $view;
 else 

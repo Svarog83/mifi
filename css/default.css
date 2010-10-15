@@ -163,7 +163,7 @@ img.right {
 #menu .current_page_item a {
 	color: green;
 	font-weight:bold;
-	#text-decoration: underline;
+	text-decoration: underline;
 }
 
 #menu .first {

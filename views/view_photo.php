@@ -16,6 +16,8 @@
 			<div class="post">
 				<h1 class="title">Фотографии</h1>
 				<div class="entry">
+				    <br>
+					<a href="/gallery/chat-2010/">Октябрь 2010. Матч против команды "СЭ-Чат"</a>
 					<br>
 					<a href="/gallery/mmf2-2010/">Октябрь 2010. Матч против команды "ММФ-2"</a>
 					<br>

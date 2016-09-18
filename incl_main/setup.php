@@ -73,10 +73,15 @@ if( $local_server )
 }
 else
 {
-	$db_host_name_main	= 'mysql1079.servage.net';
+	/*$db_host_name_main	= 'mysql1079.servage.net';
 	$db_name_main		= 'mifi2';
 	$db_user_name_main	= 'mifi2';
-	$db_password_main	= 'dtnjrhtc1';
+	$db_password_main	= 'mifi2';*/
+
+	$db_host_name_main	= 'localhost';
+	$db_name_main		= 'mifi';
+	$db_user_name_main	= 'mifi2';
+	$db_password_main	= 'mifi2';
 }
 
 ////////////////////////////////////////////////////////////////////////

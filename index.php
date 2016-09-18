@@ -1,5 +1,6 @@
-<?
+<?php
 $user_authorized = false;
+
 require_once( $_SERVER['DOCUMENT_ROOT'] . '/incl_main/config_main.php' );
 
 $GLOBAL_PARAMS = array();
